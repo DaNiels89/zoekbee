@@ -2,8 +2,5 @@
     <div>Image <%= f.file_field :pic %></div>
     <div>Title <%= f.text_field :title, required: true %></div>
     <div>Caption <%= f.text_area :caption, required: true %></div>
-    <div>Budget <%= f.text_field :budget %></div>
-    <%= f.submit %>
+        <%= f.submit class: "btn btn-primary" %>
 <% end %>
-
-<%= link_to "Home", root_path%>

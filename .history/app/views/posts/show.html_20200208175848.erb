@@ -1,0 +1,16 @@
+<h2>Show posts</h2>>
+
+    <div><%= link_to(image_tag(post.pic, class: "my-pic"), post) %></div>
+    <p><%= post.title %></p>
+    <p><%= post.caption %></p>
+    <p><%= post.budget %></p>
+    <p><%= link_to post.user.email, post.user %></p>
+
+
+<% if current_user == @post.user %>
+    <div><%= link_to "Edit", edit_post_path(@post) %></div>
+<% end %>
+
+<% if current_user == @post.user %>
+    <div><%= button_to "Delete", @post, method: :delete, class: "btn btn-danger" %></div>
+<% end %>

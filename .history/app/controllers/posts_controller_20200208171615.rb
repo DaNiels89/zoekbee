@@ -31,12 +31,14 @@ class PostsController < ApplicationController
       redirect_back(fallback_location: root_path)
       flash[:alert] = 'Post creation failed!'
     end
+
+    redirect_to @post
   end
 
   def update
     @post = Post.find(params[:id])
-    if current_user == @post.user
-      @post.update(post_params)
+    if current_user == @post.user_id
+      post.update(post_params)
       redirect_to '/posts'
       flash[:notice] = 'Post is updated!'
     else
@@ -47,7 +49,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    if current_user == @post.user
+    if current_user == @post.user_id
       @post.destroy
       redirect_to '/posts'
       flash[:notice] = 'Post is deleted!'
@@ -60,6 +62,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:pic, :title, :caption, :budget)
+    params.require(:post).permit(:title, :caption)
   end
 end

@@ -1,0 +1,11 @@
+<h2>Show posts</h2>>
+
+<%= render partial: 'post', locals: {post: @post} %>
+
+<% if current_user == @post.user %>
+    <div><%= link_to "Edit", edit_post_path(@post) %></div>
+<% end %>
+
+<% if current_user == @post.user %>
+    <div><%= button_to "Delete", @post, method: :delete, class: "btn btn-danger" %></div>
+<% end %>

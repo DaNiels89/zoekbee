@@ -1,0 +1,12 @@
+<h2>Edit post</h2>
+
+<%= form_with model: @post do |f| %>
+    <%= @post.pic.filename  %>
+    <div>Image <%= f.file_field :pic %></div>
+    <div><%= f.text_field :title, required: true %></div>
+    <div><%= f.text_area :caption, required: true %></div>
+    <div><%= f.text_field :budget %></div>
+    <%= f.submit %>
+<% end %>
+
+<%= link_to "Home", root_path%>

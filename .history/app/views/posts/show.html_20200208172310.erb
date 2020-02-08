@@ -1,0 +1,37 @@
+<h2>Show posts</h2>>
+
+
+
+
+
+
+
+
+
+
+
+<%= form_with model: @post do |f| %>
+<% if @post.pic.attached? %>
+<%= @post.pic.filename  %>
+<% else %>
+<div>Image <%= f.file_field :pic, required: true %></div>
+<% end %>
+
+<div class="form-group">
+    <label class="form-label" for="textArea">Caption</label>
+    <%= f.text_area :caption, required: true, class: "form-text" %>
+</div>
+<%= f.submit %>
+<% end %>
+
+<div class="container-sm">
+    <% if current_user == @post.user %>
+    <%= link_to "Edit", edit_post_path(@post) %>
+    <% end %>
+
+    <%= link_to 'Home', root_path %>
+
+    <% if current_user == @post.user %>
+    <%= button_to "Delete", @post, method: :delete, class: "btn btn-danger" %>
+    <% end %>
+</div>

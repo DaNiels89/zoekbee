@@ -1,0 +1,18 @@
+<h2>Show posts</h2>>
+
+<%= form_with model: @post do |f| %>
+    <%= @post.pic.filename  %>
+    <div>Image <%= f.file_field :pic %></div>
+    <%= f.text_area :title, required: true %>
+    <%= f.text_area :caption, required: true %>
+    <%= f.text_area :budget %>
+    <%= f.submit %>
+<% end %>
+
+<% if current_user == @post.user %>
+    <div><%= link_to "Edit", edit_post_path(@post) %></div>
+<% end %>
+
+<% if current_user == @post.user %>
+    <div><%= button_to "Delete", @post, method: :delete, class: "btn btn-danger" %></div>
+<% end %>

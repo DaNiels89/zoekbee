@@ -1,0 +1,11 @@
+<h1>ZoekBee</h1>
+
+<%= link_to "Create post", new_post_path(@post) %>
+    
+<% posts.each do |post| %>
+    <div><%= link_to(image_tag(post.pic, class: "my-pic"), post) %></div>
+    <p><%= post.title %></p>
+    <p><%= post.caption %></p>
+    <p><%= post.budget %></p>
+    <p><%= link_to post.user.email, post.user %></p>
+<% end %>
