@@ -1,7 +1,13 @@
 <%= form_with model: @post do |f| %>
+    <% if @post.pic.attached? %>
+        
+    <% else %>
+        
+    <% end %>
     <div>Title <%= f.text_field :title, required: true %></div>
     <div>Caption <%= f.text_area :caption, required: true %></div>
     <div>Budget <%= f.text_field :budget %></div>
-    <div>Image <%= f.file_field :pic %></div>    
+    <div>Image <%= f.file_field :pic %></div>
+    
     <%= f.submit %>
 <% end %>
