@@ -28,8 +28,8 @@ class PostsController < ApplicationController
       redirect_to @post
       flash[:notice] = 'Post created!'
     else
-      redirect_back(failback_location: root_path)
-      flash[:alert] = 'Post creation failed'
+      redirect_back(fallback_location: root_path)
+      flash[:alert] = 'Post creation failed!'
     end
   end
 
@@ -37,23 +37,23 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if current_user == @post.user
       @post.update(post_params)
-      redirect_to '/posts'
-      flash[:notice] = 'Post is updated'
+      redirect_to @post
+      flash[:notice] = 'Post is updated!'
     else
       redirect_back(fallback_location: root_path)
-      flash[:alert] = 'Not authorized to update post'
+      flash[:alert] = 'Not authorized to update post!'
     end
   end
 
   def destroy
-    post = Post.find(params[:id]).destroy
-    if current_user == post.user
-      post.destroy
+    @post = Post.find(params[:id])
+    if current_user == @post.user
+      @post.destroy
       redirect_to '/posts'
-      flash[:notice] = 'Post destroyed'
+      flash[:notice] = 'Post is deleted!'
     else
       redirect_back(fallback_location: root_path)
-      flash[:alert] = 'Not authorized to delete the post'
+      flash[:alert] = 'Not authorized to delete post'
     end
   end
 

@@ -1,0 +1,7 @@
+<h1>ZoekBee</h1>
+
+<% @posts.each do |post| %>
+    <%= render partial: 'partials/post', locals: {post: @post} %>
+<% end %>
+
+<%= link_to "Home", root_path %>
