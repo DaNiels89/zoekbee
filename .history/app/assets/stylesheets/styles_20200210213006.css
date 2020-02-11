@@ -1,8 +1,6 @@
 body#my-body {
   font-family: 'Roboto Slab', serif;
-  margin-top: 5em;
 }
 
-.main-part {
-  margin-left: 2em;
+.container {
 }
