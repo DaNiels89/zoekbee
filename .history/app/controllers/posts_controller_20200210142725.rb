@@ -7,13 +7,16 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show; end
+  def show
+    @post = Post.find(params[:id])
+  end
 
   def new
     @post = Post.new
   end
 
   def edit
+    @post = Post.find(params[:id])
     if current_user != @post.user
       redirect_to root_path
       flash[:alert] = 'Unauthorized request'
@@ -44,15 +47,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    puts 333
-    puts request.referrer
-    puts 555
-    @post.destroy
-    if current_user == @post.user
-      @post.destroy
+    post = Post.find(params[:id]).destroy
+    if current_user == post.user
+      post.destroy
       redirect_to '/posts'
-      # for removing on the user page
-      # redirect_back(fallback_location: user_path)
       flash[:notice] = 'Post destroyed'
     else
       redirect_back(fallback_location: root_path)

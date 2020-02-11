@@ -1,0 +1,7 @@
+<h1>ZoekBee</h1>
+
+<%= link_to "Create post", new_post_path(@post) %>
+
+<%= @posts.each do |post| %>
+    <%= render partial: 'partials/post', locals: {post: @post} %>
+<% end %>

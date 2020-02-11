@@ -15,7 +15,14 @@
 
 <body id="my-body">
 
-  <%= render 'partials/nav' %>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+    <li>
+      <a href="<%= new_post_path(@post) %>">Create ZoekBee</a>
+    </li>
+  </ul>
 
   <p class="navbar-text float-right">
     <% if user_signed_in? %>

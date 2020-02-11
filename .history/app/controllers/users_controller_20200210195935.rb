@@ -3,7 +3,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    if current_user.id != @user.id
+    if current_user != @user_id
       redirect_to root_path
       flash[:alert] = 'Unauthorized request'
     end

@@ -2,8 +2,8 @@
     <div>Title <%= f.text_field :title, required: true %></div>
     <div>Caption <%= f.text_area :caption, required: true %></div>
     <div>Budget <%= f.text_field :budget, required: true %></div>
-    <% if @post.pic.attached? %>
-        <%= @post.pic.filename %>
+    <% if post.pic.attached? %>
+        <div><%  %></div>
     <% else %>
         <div>Image <%= f.file_field :pic, required: true %></div>
     <% end %> 

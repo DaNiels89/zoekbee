@@ -44,9 +44,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    puts 333
-    puts request.referrer
-    puts 555
     @post.destroy
     if current_user == @post.user
       @post.destroy
