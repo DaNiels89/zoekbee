@@ -1,0 +1,20 @@
+<h2>Show post</h2>
+
+<div class="container">
+<h1>All posts</h1>
+  <div class="row">
+    <% Post.all.each do |post| %>
+        <div class="col-lg">
+        <%= render partial: 'partials/post', locals: {post: post} %>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<% if current_user == @post.user %>
+    <div><%= link_to "Edit", edit_post_path(@post) %></div>
+<% end %>
+
+<% if current_user == @post.user %>
+    <div><%= button_to "Delete", @post, confirm: 'Are you sure?', method: :delete, class: "btn btn-danger" %></div>
+<% end %>

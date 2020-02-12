@@ -48,8 +48,6 @@ class PostsController < ApplicationController
     if current_user == @post.user
       @post.destroy
       redirect_to '/posts'
-      # for removing on the user page
-      # redirect_back(fallback_location: user_path)
       flash[:notice] = 'Post destroyed'
     else
       redirect_back(fallback_location: root_path)

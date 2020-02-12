@@ -1,0 +1,15 @@
+<h2>New company</h2>
+
+<%= form_with model: @companie do |f| %>
+    <div>Company name <%= f.text_field :name, required: true %></div>
+    <div>Company founder <%= f.text_field :founder, required: true %></div>
+    <div>Company discription <%= f.text_area :discription, required: true %></div>
+    <div>Company tag <%= f.text_field :tag, required: true %></div>
+    <div>User ID <%= f.text_field :user_id %></div>
+    <% if @company.pic.attached? %>
+        <%= @company.pic.filename %>
+    <% else %>
+        <div>Image <%= f.file_field :pic, required: true %></div>
+    <% end %> 
+    <%= f.submit %>
+<% end %>

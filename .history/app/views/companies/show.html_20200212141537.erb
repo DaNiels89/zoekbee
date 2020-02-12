@@ -1,0 +1,11 @@
+<h2>Show company</h2>
+
+<%= render partial: 'partials/company_information', locals: {company: @company} %>
+
+<% if current_user == @company.user %>
+    <div><%= link_to "Edit", edit_company_path(@company) %></div>
+<% end %>
+
+<% if current_user == @company.user %>
+    <div><%= button_to "Delete", @company, confirm: 'Are you sure?', method: :delete, class: "btn btn-danger" %></div>
+<% end %>

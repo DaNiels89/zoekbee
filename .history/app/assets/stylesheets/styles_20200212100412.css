@@ -11,7 +11,3 @@ body#my-body {
   display: flex;
   justify-content: center;
 }
-
-.text-cnt {
-  text-align: center;
-}

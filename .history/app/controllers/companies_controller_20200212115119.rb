@@ -1,34 +1,33 @@
 # frozen_string_literal: true
 
-class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
-
+class CompaniesController < ApplicationController
+  before_action :set_company, only: %i[show edit update destroy]
   def index
-    @posts = Post.all
+    @companies = Company.all
   end
 
   def show; end
 
   def new
-    @post = Post.new
+    @company = Company.new
   end
 
   def edit
-    if current_user != @post.user
+    if current_user != @company.user_id
       redirect_to root_path
       flash[:alert] = 'Unauthorized request'
     end
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
-    if @post.save
-      redirect_to @post
-      flash[:notice] = 'Post created!'
+    @company = Company.new(company_params)
+    @company.user_id = current_user.id
+    if @company.save
+      redirect_to @company
+      flash[:notice] = 'Company created!'
     else
       redirect_back(failback_location: root_path)
-      flash[:alert] = 'Post creation failed'
+      flash[:alert] = 'Company creation failed'
     end
   end
 

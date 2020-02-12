@@ -1,0 +1,9 @@
+<% if company.pic.attached? %>
+    <div><%= link_to(image_tag(company.pic, class: "my-pic"), company) %></div>
+<% end %>
+
+<h4>Company name: <%= company.name %></h4>
+<p>Company founder: <%= company.founder %></p>
+<p>Company description: <%= company.discription %></p>
+<p>Company tag: <%= company.tag %></p>
+<p><%= link_to company.user.email, company.user %></p>

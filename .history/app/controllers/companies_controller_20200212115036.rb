@@ -1,20 +1,19 @@
 # frozen_string_literal: true
 
-class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
-
+class CompaniesController < ApplicationController
+  before_action :set_company, only: %i[show edit update destroy]
   def index
-    @posts = Post.all
+    @companies = Company.all
   end
 
   def show; end
 
   def new
-    @post = Post.new
+    @company = Company.new
   end
 
   def edit
-    if current_user != @post.user
+    if current_user != @company.user_id
       redirect_to root_path
       flash[:alert] = 'Unauthorized request'
     end

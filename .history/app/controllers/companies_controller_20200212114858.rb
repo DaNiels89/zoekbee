@@ -1,7 +1,19 @@
 # frozen_string_literal: true
 
-class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
+class CompaniesController < ApplicationController
+  before_action :set_company, only: %i[show edit update destroy]
+  def index
+    @companies = Company.all
+  end
+
+  def show
+    @company = Company.find(params[:id])
+  end
+end
+
+
+
+  before_action :set_company, only: %i[show edit update destroy]
 
   def index
     @posts = Post.all

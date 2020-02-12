@@ -5,7 +5,7 @@
 <div class="container">
   <div class="row">
     <% Post.all.each do |post| %>
-        <div class="col-sm text-cnt">
+        <div class="col-sm">
         <%= render partial: 'partials/post', locals: {post: post} %>
         </div>
     <% end %>
