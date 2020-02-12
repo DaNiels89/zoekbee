@@ -2,12 +2,19 @@
     <h1>ZoekBee</h1>
 </div>
 
+
+<% @posts.each do |post| %>
+    <%= render partial: 'partials/post', locals: {post: post} %>
+<% end %>
+
+
+
+
+
 <div class="container">
   <div class="row">
-    <% @posts.each do |post| %>
     <div class="col-sm text-cnt">
-        <%= render partial: 'partials/post', locals: {post: post} %>
-    </div>
-    <% end %>   
+        <%= render "partials/form" %>
+    </div>    
   </div>
 </div>

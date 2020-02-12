@@ -1,15 +1,14 @@
 <%= form_with model: @post do |f| %>
     <%= label_tag(:postTitle, "Title") %>
-    <div><%= f.text_field :title, required: true %></div>
+    <%= f.text_field :title, required: true %>
     <%= label_tag(:postCaption, "Caption") %>
-    <div><%= f.text_area :caption, required: true %></div>
+    <%= f.text_area :caption, required: true %>
     <%= label_tag(:postBudget, "Budget") %>
-    <div><%= f.text_field :budget, required: true %></div>
+    <%= f.text_field :budget, required: true %>
     <% if @post.pic.attached? %>
         <%= @post.pic.filename %>
     <% else %>
-        <%= label_tag(:postImage, "Image") %>
-        <div><%= f.file_field :pic, required: true %></div>
+        <div>Image <%= f.file_field :pic, required: true %></div>
     <% end %> 
     <%= f.submit %>
 <% end %>

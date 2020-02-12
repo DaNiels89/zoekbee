@@ -8,8 +8,7 @@
     <% if @post.pic.attached? %>
         <%= @post.pic.filename %>
     <% else %>
-        <%= label_tag(:postImage, "Image") %>
-        <div><%= f.file_field :pic, required: true %></div>
+        <div>Image <%= f.file_field :pic, required: true %></div>
     <% end %> 
     <%= f.submit %>
 <% end %>

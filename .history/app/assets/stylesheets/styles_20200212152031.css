@@ -3,6 +3,9 @@ body#my-body {
   margin-top: 3.5em;
 }
 
+.main-part {
+}
+
 .index-container {
   display: flex;
   justify-content: center;
