@@ -1,0 +1,36 @@
+<%= form_with model: @company do |f| %>
+    <%= label_tag(:companyName, "Company name") %>
+    <div><%= f.text_field :name, required: true %></div>
+    <%= label_tag(:companyFounder, "Company founder") %>
+    <div><%= f.text_field :founder, required: true %></div>
+    <%= label_tag(:companyDescription, "Title") %>
+    <div><%= f.text_area :discription, required: true %></div>
+    <%= label_tag(:postTitle, "Title") %>
+    <div>Company tag <%= f.text_field :tag, required: true %></div>
+    <%= label_tag(:postTitle, "Title") %>
+    <div>User ID <%= f.text_field :user_id %></div>
+    <%= label_tag(:postTitle, "Title") %>
+    <% if @company.pic.attached? %>
+        <%= @company.pic.filename %>
+    <% else %>
+        <div>Image <%= f.file_field :pic, required: true %></div>
+    <% end %> 
+    <%= f.submit %>
+<% end %>
+
+
+<%= form_with model: @post do |f| %>
+    <%= label_tag(:postTitle, "Title") %>
+    <div><%= f.text_field :title, required: true %></div>
+    <%= label_tag(:postCaption, "Caption") %>
+    <div><%= f.text_area :caption, required: true %></div>
+    <%= label_tag(:postBudget, "Budget") %>
+    <div><%= f.text_field :budget, required: true %></div>
+    <% if @post.pic.attached? %>
+        <%= @post.pic.filename %>
+    <% else %>
+        <%= label_tag(:postImage, "Image") %>
+        <div><%= f.file_field :pic, required: true %></div>
+    <% end %> 
+    <%= f.submit %>
+<% end %>

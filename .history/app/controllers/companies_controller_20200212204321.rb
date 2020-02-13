@@ -32,7 +32,7 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    if current_user == @company.user
+    if current_user == @company.user_id
       @company.update(company_params)
       redirect_to '/companies'
       flash[:notice] = 'Company is updated'
@@ -44,7 +44,7 @@ class CompaniesController < ApplicationController
 
   def destroy
     @company.destroy
-    if current_user == @company.user
+    if current_user == @company.user_id
       @company.destroy
       redirect_to '/companies'
       flash[:notice] = 'Company destroyed'

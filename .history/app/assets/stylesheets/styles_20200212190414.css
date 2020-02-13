@@ -15,8 +15,3 @@ body#my-body {
 .my-pic {
   width: 300px;
 }
-
-.link-center {
-  display: flex;
-  justify-content: center;
-}

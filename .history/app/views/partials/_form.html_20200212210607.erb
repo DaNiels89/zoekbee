@@ -7,6 +7,7 @@
     <div><%= f.text_field :budget, required: true %></div>
     <% if @post.pic.attached? %>
         <div><%= @post.pic.filename %></div>
+        <div><%= f.file_field :pic %></div>
     <% else %>
         <%= label_tag(:postImage, "Image") %>
         <div><%= f.file_field :pic, required: true %></div>

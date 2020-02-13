@@ -1,9 +1,15 @@
+
+
+<% @companies.each do |company| %>
+    <%= render partial: 'partials/company_information', locals: {company: company} %>
+<% end %>
+
+
 <div class="container index-container">
     <h2>Overview companies</h2>
 </div>
 
 <div class="container">
-    <%= link_to "Create new company", new_company_path, class: "link-center" %>
   <div class="row">
     <% @companies.each do |company| %>
     <div class="col-sm text-cnt">

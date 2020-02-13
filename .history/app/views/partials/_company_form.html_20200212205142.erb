@@ -8,12 +8,12 @@
     <%= label_tag(:companyTag, "Company tag") %>
     <div><%= f.text_field :tag, required: true %></div>
     <%= label_tag(:companyUserID, "User ID") %>
-    <div><%= f.text_field :user_id %></div>
+    <div>User ID <%= f.text_field :user_id %></div>
     <%= label_tag(:companyImage, "Company logo") %>
     <% if @company.pic.attached? %>
-        <div><%= @company.pic.filename %></div>
+        <%= @company.pic.filename %>
     <% else %>
         <div>Image <%= f.file_field :pic, required: true %></div>
     <% end %> 
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit %>
 <% end %>

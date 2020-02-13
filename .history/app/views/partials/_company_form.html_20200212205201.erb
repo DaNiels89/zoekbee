@@ -11,9 +11,9 @@
     <div><%= f.text_field :user_id %></div>
     <%= label_tag(:companyImage, "Company logo") %>
     <% if @company.pic.attached? %>
-        <div><%= @company.pic.filename %></div>
+        <%= @company.pic.filename %>
     <% else %>
         <div>Image <%= f.file_field :pic, required: true %></div>
     <% end %> 
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit %>
 <% end %>

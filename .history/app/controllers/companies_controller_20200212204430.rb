@@ -44,7 +44,7 @@ class CompaniesController < ApplicationController
 
   def destroy
     @company.destroy
-    if current_user == @company.user
+    if current_user == @company.user_id
       @company.destroy
       redirect_to '/companies'
       flash[:notice] = 'Company destroyed'
