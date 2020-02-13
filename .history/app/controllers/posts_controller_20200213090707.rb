@@ -28,7 +28,7 @@ class PostsController < ApplicationController
       flash[:notice] = 'Post created!'
       companies = Company.were(tag: @post.caption)
       companies.each do |company|
-        UserMailer.new_post_email(company.user.email, @post)
+        NotificationMailer.new_post_email(company.user.email, @post)
       end
     else
       redirect_back(failback_location: root_path)

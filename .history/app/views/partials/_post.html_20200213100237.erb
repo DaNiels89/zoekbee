@@ -1,0 +1,12 @@
+<% if posts.each.empty? %>
+    <h2>No posts to show</h2>
+<% else %>
+    <% if post.pic.attached? %>
+        <div><%= link_to(image_tag(post.pic, class: "my-pic"), post) %></div>
+    <% end %>
+
+    <h4><%= post.title %></h4>
+    <p> <%= post.caption %></p>
+    <p>Budget: <%= post.budget %></p>
+    <p><%= link_to post.user.email, post.user %></p>
+<% end %>
