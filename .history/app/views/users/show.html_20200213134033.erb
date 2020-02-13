@@ -1,0 +1,17 @@
+<div class="container index-container">
+    <h2><%= @user.email %></h2>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% if @posts.each.nil? %>
+      <h2 class="text-cnt">No user's Zoekbee's to show</h2>
+    <% else %>
+      <% @user.posts.each do |post| %>
+      <div class="col-sm text-cnt">
+          <%= render partial: 'partials/post', locals: {post: post} %>
+      </div>
+      <% end %>  
+    <% end %>
+  </div>
+</div>

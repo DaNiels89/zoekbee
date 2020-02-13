@@ -4,10 +4,11 @@
 
 <div class="container">
   <div class="row">
-    <% if @user.posts.empty? %>
+  <% if @user.posts.empty? %>
         <h2 class="text-cnt">No user's Zoekbee's to show</h2>
-    <% else %>
-      <% @user.posts.each do |post| %>
+    <% @user.posts.each do |post| %>
+      
+      <% else %>
         <div class="col-sm text-cnt">
             <%= render partial: 'partials/post', locals: {post: post} %>
         </div>
