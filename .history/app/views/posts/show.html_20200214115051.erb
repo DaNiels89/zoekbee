@@ -1,0 +1,50 @@
+<div class="container index-container">
+    <h2>Show post</h2>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm text-cnt">
+        <%= render partial: 'partials/post', locals: {post: @post} %>
+
+        <% if current_user == @post.user %>
+            <div><%= link_to "Edit", edit_post_path(@post) %></div>
+        <% end %>
+
+        <% if current_user == @post.user %>
+            <div><%= button_to "Delete", @post, confirm: 'Are you sure?', method: :delete, class: "btn btn-danger" %></div>
+        <% end %>
+
+        <h4>Comments</h4>
+            <% @post.comments.each do |comment| %>
+        <p>
+            <strong>Commenter:</strong>
+            <%= comment.commenter %>
+        </p>
+
+        <p>
+            <strong>Comment:</strong>
+            <%= comment.body %>
+        </p>
+        <% end %>
+
+        <h4>Add a comment:</h4>
+        <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+        <p>
+            <%= form.label :commenter %><br>
+            <%= form.text_field :commenter, value: current_user.email  %>
+        </p>
+        <p>
+            <%= form.label :body %><br>
+            <%= form.text_area :body %>
+        </p>
+        <p>
+            <%= form.submit %>
+        </p>
+        <% end %>
+
+        <%= link_to 'Edit', edit_post_path(@post) %> |
+        <%= link_to 'Back', posts_path %>
+    </div>    
+  </div>
+</div>

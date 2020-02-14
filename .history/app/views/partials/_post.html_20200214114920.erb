@@ -1,0 +1,39 @@
+<% if post.pic.attached? %>
+    <div><%= link_to(image_tag(post.pic, class: "my-pic"), post) %></div>
+<% end %>
+
+<h4><strong><%= post.title %></strong></h4>
+<p> <%= post.caption %></p>
+<p>Budget: <%= post.budget %></p>
+<p><%= link_to post.user.email, post.user %></p>
+
+<h4>Comments</h4>
+    <% @post.comments.each do |comment| %>
+<p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+</p>
+
+<p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+</p>
+<% end %>
+
+<h4>Add a comment:</h4>
+<%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+<p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter  %>
+</p>
+<p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+</p>
+<p>
+    <%= form.submit %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

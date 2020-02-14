@@ -2,7 +2,10 @@
     <div><%= link_to(image_tag(post.pic, class: "my-pic"), post) %></div>
 <% end %>
 
-<h4><strong><%= post.title %></strong></h4>
+<h4>
+    <strong>Title:</strong>
+    <%= post.title %>
+</h4>
 <p> <%= post.caption %></p>
 <p>Budget: <%= post.budget %></p>
 <p><%= link_to post.user.email, post.user %></p>

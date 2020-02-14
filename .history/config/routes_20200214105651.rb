@@ -8,10 +8,8 @@ Rails.application.routes.draw do
   get 'home/index'
 
   resources :users, only: [:show]
+  resources :posts
   resources :companies
-  resources :posts do
-    resources :comments
-  end
 
   root 'home#index'
 end

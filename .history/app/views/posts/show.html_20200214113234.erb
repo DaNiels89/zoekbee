@@ -14,8 +14,6 @@
         <% if current_user == @post.user %>
             <div><%= button_to "Delete", @post, confirm: 'Are you sure?', method: :delete, class: "btn btn-danger" %></div>
         <% end %>
-
-        <%= render partial: 'partials/post_comment', locals: {post: @post} %>
     </div>    
   </div>
 </div>
