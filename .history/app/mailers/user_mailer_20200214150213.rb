@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
 
   def welcome_email
     @user = User.last
-    @url = 'http://localhost:3000/users/sign_in'
+    @url = user_session_path
     mail(to: @user.email, subject: 'Welcome to ZoekBee')
   end
 
